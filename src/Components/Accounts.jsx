@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Account = ({ mode }) => {
+const Account = ({setUser,user, mode }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [user, setUser] = useState({
-    name: 'Kartikeyan Ajmera',
-    email: 'kartikeyan15ajmera@gmail.com',
-    contact: '+91 9358899721',
-    profilePic: 'https://via.placeholder.com/150'
-  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +29,12 @@ const Account = ({ mode }) => {
   const handleEdit = () => setIsEditing(true);
   const handleSave = () => setIsEditing(false);
 
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
   return (
+    
     <div className={`min-h-screen ${mode === 'dark' ? 'bg-gray-900' : 'bg-gray-100'} -my-8 flex items-center justify-center`}>
       <div className={`bg-gray-100 ${mode === 'dark' ? 'bg-gray-800 hover:shadow-4xl shadow-gray-200 text-white' : 'bg-gray-200 hover:shadow-xl shadow-gray-500'} p-6 rounded-lg  w-full max-w-lg font-sans`}>
         <div className="flex items-center justify-between mb-4">
@@ -51,12 +50,14 @@ const Account = ({ mode }) => {
 </button>
 
         </div>
+
         <form>
           <div className="mb-4">
             <label className="block mb-2" htmlFor="profilePic">Profile Picture</label>
             <div className="flex items-center">
               <img
-                src={user.profilePic}
+                   src={user.profilePic || 'default-profile-pic-url'} // Use a default URL if user.profilePic is undefined
+              
                 alt="Profile"
                 className="w-24 h-24 rounded-full mr-4"
               />
@@ -71,14 +72,16 @@ const Account = ({ mode }) => {
               )}
             </div>
           </div>
-          <div className="mb-4">
+          
+            <div className="mb-4">
             <label className="block text-lack mb-2" htmlFor="name">Name</label>
             <input
               className={`w-full p-3 border ${mode == 'dark' ? 'bg-gray-800 text-gray-200 border-gray-300' : 'bg-gray-100'} rounded-lg  shadow`}
               type="text"
               id="name"
               name="name"
-              value={user.name}
+              value={user.name || 'null'}
+              
               onChange={handleChange}
               disabled={!isEditing}
             />
@@ -90,7 +93,7 @@ const Account = ({ mode }) => {
               type="email"
               id="email"
               name="email"
-              value={user.email}
+              value={user.email || 'null'}
               onChange={handleChange}
               disabled={!isEditing}
             />
@@ -100,16 +103,19 @@ const Account = ({ mode }) => {
             <input
               className={`w-full p-3 border ${mode == 'dark' ? 'bg-gray-800 text-gray-200 border-gray-300' : 'bg-gray-100'} rounded-lg  shadow`}
               type="text"
-              id="contact"
-              name="contact"
-              value={user.contact}
+              id="password"
+              name="password"
+              value={user.password || 'null'}
               onChange={handleChange}
               disabled={!isEditing}
             />
           </div>
+          
+          
         </form>
       </div>
     </div>
+    
   );
 };
 

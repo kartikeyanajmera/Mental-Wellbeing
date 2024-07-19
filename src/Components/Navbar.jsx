@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as ScrollLink } from 'react-scroll';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { NavLink, Link as RouterLink, useLocation } from 'react-router-dom';
 import {
   BellIcon,
   BookIcon,
@@ -15,9 +15,11 @@ import {
 } from "@iconicicons/react";
 import { DropdownMenu } from "@lemonsqueezy/wedges";
 
-const Navbar = ({ toggleDarkMode, mode }) => {
+const Navbar = ({ toggleDarkMode, mode,handleLogout,user}) => {
   const location = useLocation();
 
+  
+  
   return (
     <nav className={`font-sans font-medium w-full sticky text-lg top-0 shadow-xl z-50 ${mode == 'dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-100'}`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -109,7 +111,10 @@ const Navbar = ({ toggleDarkMode, mode }) => {
                 <span className="group flex shrink cursor-pointer select-none items-center justify-center gap-1 rounded-lg p-1.5 px-2 text-sm text-surface-600 transition-colors duration-100 wg-antialiased hover:bg-surface dark:hover:bg-white/5">
 
                   <span className="ms-2 flex flex-col">
-                    <span className="font-sans text-lg -mt-0">Kartikeyan</span>
+                  {user ? 
+                   <span className="font-sans text-lg -mt-0">{user.name}</span> :
+                   <span className="font-sans text-lg -mt-0">name</span>}
+                    
                   </span>
                   <ChevronDownIcon className="trigger-icon h-5 w-5 text-surface-400" />
                 </span>
@@ -161,7 +166,11 @@ const Navbar = ({ toggleDarkMode, mode }) => {
                 <DropdownMenu.Group>
                   <DropdownMenu.Item>
                     <LogOutIcon />
-                    <RouterLink to='/auth'>Log Out</RouterLink>
+                 
+                    
+                    {user ? 
+                    <button onClick={handleLogout} >Log Out</button> :
+                    <NavLink to='/login'>SignIn</NavLink>}
                   </DropdownMenu.Item>
                 </DropdownMenu.Group>
               </DropdownMenu.Content>
