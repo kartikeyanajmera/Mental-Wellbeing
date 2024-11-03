@@ -491,5 +491,13 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
     );
   background-size: var(--gap) var(--gap);
 }
-
-
+.testi{
+  font-family: "GFS Neohellenic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.price{
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

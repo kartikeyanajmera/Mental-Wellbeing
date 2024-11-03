@@ -12,6 +12,12 @@ export default {
   darkMode:"class",
   theme: {
     extend: {
+
+
+
+
+
+      
       animation: {
         'slide-up': 'slide-up 1s ease-out forwards',
         'fade-in': 'fade-in 1s ease-out forwards',

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function About({mode}) {
   return (
-    <div className={`${mode=='dark' ? 'bg-gray-900 text-white':'bg-gray-100' } min-h-screen flex items-center justify-center`}>
+    <div className={`${mode=='dark' ? 'black-bg text-white':'bg-gray-100' } min-h-screen flex items-center justify-center`}>
       <div className="max-w-5xl mx-auto p-8">
         <h2 className="text-3xl text-center font-thin text-blck">What We Do</h2>
         <p className="text-lg text-gry-700 mt-8 font-sans">

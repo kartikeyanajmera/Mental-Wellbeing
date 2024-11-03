@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BG from '../assets/hero-dark-bg.png'
+import { Link as ScrollLink } from 'react-scroll';
+
+// import BG from '../assets/hero-dark-bg.png'
 const HeroSection = ({ mode }) => {
   return (
     <div className="relative overflow-hidden flex items-center justify-center text-center h-screen">
@@ -21,11 +23,16 @@ const HeroSection = ({ mode }) => {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-center">
                 <div className=" animate-slide-up">
-                  <a className="swipe">Get Started <span className="container"><svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg></span> </a>
+                  <ScrollLink to='card-background' className="swipe">Get Started <span className="container">
+                  <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor">
+                  </path></svg></span>
+                  </ScrollLink>
 
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3 animate-slide-up">
-                  <button className="readmore-btn">
+                  {/* <button className="readmore-btn">
                     <span className="book-wrapper">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +102,7 @@ const HeroSection = ({ mode }) => {
                       </svg>
                     </span>
                     <span className="text"> Read more </span>
-                  </button>
+                  </button> */}
 
                 </div>
               </div>

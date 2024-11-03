@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
 const CardsBackground = ({mode}) => {
   return (
     <>
-      <div className={`flex justify-center items-center px-3 ${mode=='dark' ? 'black-bg text-white':'white-grid' } text-3xl font-extralight`}>
+      <div className={`flex justify-center items-center px-3 ${mode=='dark' ? 'bg-gray-800 text-white':'white-grid' } text-3xl font-extralight`}>
         <span className="font-sans mt-24">OUR SERVICES</span>
       </div> 
 
-      <div className={`flex items-center ${mode==='dark'? 'black-bg':'white-grid ' } justify-center py-16`}>
+      <div className={`flex items-center ${mode==='dark'? 'bg-gray-800':'white-grid ' } justify-center py-16`}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full max-w-6xl">
           <div className="w-full p-4 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105 bg-gradient-to-r from-blue-300 to-blue-200 flex flex-col justify-center items-center">
             <img src={guidedMeditationIcon} alt="Guided Meditation icon" className="image-class mb-4 w-16 h-16" />

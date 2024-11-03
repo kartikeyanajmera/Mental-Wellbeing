@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as ScrollLink } from 'react-scroll';
 import { NavLink, Link as RouterLink, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png'
 import {
-  BellIcon,
-  BookIcon,
+
   ChevronDownIcon,
-  HelpCircleIcon,
-  LockIcon,
+  
   LogOutIcon,
 
-  SettingsIcon,
+  
   UserIcon,
 } from "@iconicicons/react";
 import { DropdownMenu } from "@lemonsqueezy/wedges";
@@ -21,13 +20,17 @@ const Navbar = ({ toggleDarkMode, mode,handleLogout,user}) => {
   
   
   return (
-    <nav className={`font-sans font-medium w-full sticky text-lg top-0 shadow-xl z-50 ${mode == 'dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-100'}`}>
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    
+  <nav className={`price font-medium w-full sticky text-lg top-0  z-50 ${mode == 'dark' ? 'bg-gray-900 text-gray-200': 'bg-gray-100 shadow-xl'}`}>
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8"> 
         <div className="relative flex items-center justify-between h-16">
-          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+        <img src={logo} className='h-20 absolute mt-4 -ml-4 cursor-pointer' alt='Logo' />
+
+          <div className="flex-1 flex sha items-center justify-center sm:items-stretch sm:justify-start">
             <div className="hidden sm:block sm:ml-6">
-              <div className="flex space-x-4">
-                <RouterLink to="" className="nav-link cursor-pointer">Home</RouterLink>
+              <div className="flex space-x-4 ml-16">
+              
+               <RouterLink to="" className="nav-link cursor-pointer">Home</RouterLink>
                 {location.pathname === '/' ? (
                   <>
                     <ScrollLink to="About" className="nav-link cursor-pointer relative group">
@@ -46,6 +49,21 @@ const Navbar = ({ toggleDarkMode, mode,handleLogout,user}) => {
                       Contact Us
                       <span className={`absolute left-0 bottom-0 w-full h-0.5 ${mode === 'dark' ? 'bg-white' : 'bg-gray-500'} transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100`}></span>
                     </RouterLink>
+                    <RouterLink to="/price" className="nav-link cursor-pointer relative group">
+                      Pricing
+                      <span className={`absolute left-0 bottom-0 w-full h-0.5 ${mode === 'dark' ? 'bg-white' : 'bg-gray-500'} transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100`}></span>
+                    </RouterLink>
+
+                    <RouterLink to="/chat" className="nav-link cursor-pointer relative group">
+                      chat
+                      <span className={`absolute left-0 bottom-0 w-full h-0.5 ${mode === 'dark' ? 'bg-white' : 'bg-gray-500'} transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100`}></span>
+                    </RouterLink>
+                    
+
+
+
+
+
                   </>
                 ) : (
                   <>
@@ -65,12 +83,22 @@ const Navbar = ({ toggleDarkMode, mode,handleLogout,user}) => {
                       Contact Us
                       <span className={`absolute left-0 bottom-0 w-full h-0.5 ${mode === 'dark' ? 'bg-white' : 'bg-gray-500'} transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100`}></span>
                     </RouterLink>
+                    <RouterLink to="/price" className="nav-link cursor-pointer relative group">
+                      Pricing
+                      <span className={`absolute left-0 bottom-0 w-full h-0.5 ${mode === 'dark' ? 'bg-white' : 'bg-gray-500'} transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100`}></span>
+                    </RouterLink>
+                    
                   </>
                 )}
               </div>
             </div>
           </div>
 
+          <RouterLink to='/mood'
+            className="relative py-1 px-3 mr-6  text-black text-base font-bold rounded-full overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-blue-500 before:to-blue-300 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0"
+            >
+              Mental Health Test
+            </RouterLink>
 
           <label className="inline-flex items-center relative -mr-4 mt-1">
             <input className="peer hidden" id="toggle" onClick={toggleDarkMode} type="checkbox" />
@@ -113,7 +141,7 @@ const Navbar = ({ toggleDarkMode, mode,handleLogout,user}) => {
                   <span className="ms-2 flex flex-col">
                   {user ? 
                    <span className="font-sans text-lg -mt-0">{user.name}</span> :
-                   <span className="font-sans text-lg -mt-0">name</span>}
+                   <span className="font-sans text-lg -mt-0">User</span>}
                     
                   </span>
                   <ChevronDownIcon className="trigger-icon h-5 w-5 text-surface-400" />
@@ -132,34 +160,19 @@ const Navbar = ({ toggleDarkMode, mode,handleLogout,user}) => {
                     
 
                   </DropdownMenu.Item>
-                  <DropdownMenu.Item>
-                    <SettingsIcon />
-                    <span>Settings</span>
-                  </DropdownMenu.Item>
+                  
 
-                  <DropdownMenu.Item>
-                    <LockIcon />
-                    <span>Privacy</span>
-                  </DropdownMenu.Item>
+                 
 
-                  <DropdownMenu.Item>
-                    <BellIcon />
-                    <span>Notifications</span>
-                  </DropdownMenu.Item>
+                  
                 </DropdownMenu.Group>
 
                 <DropdownMenu.Separator />
 
                 <DropdownMenu.Group>
-                  <DropdownMenu.Item>
-                    <BookIcon />
-                    <span>Help Guide</span>
-                  </DropdownMenu.Item>
+                 
 
-                  <DropdownMenu.Item>
-                    <HelpCircleIcon />
-                    <span>Help Center</span>
-                  </DropdownMenu.Item>
+                 
                 </DropdownMenu.Group>
 
                 

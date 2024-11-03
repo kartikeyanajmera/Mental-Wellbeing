@@ -42,16 +42,17 @@ function Register() {
         position:'top-center',
       });
       } catch (error) {
-        console.log(error.message);
-        toast.warn(error.message,{
-          position:'bottom-center',
-        })
+        // console.log(error.message);
+        // toast.warn(error.message,{
+        //   position:'bottom-center',
+        // })
+        alert("Invalid Credential")
       }
     }
   return (
     <>
     <form onSubmit={handleRegister}>
-    <div className="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div className="relative py-11 sm:max-w-xl sm:mx-auto">
   <div
     className="relative px-4 py-10 bg-black mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
   >
@@ -147,7 +148,7 @@ function Register() {
           </select>
         </div>
       </div>
-      <div className="flex justify-center items-center">
+      {/* <div className="flex justify-center items-center">
         <div>
           <button
             className="flex items-center justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
@@ -238,13 +239,13 @@ function Register() {
             <span className="ml-2">Sign up with Apple</span>
           </button>
         </div>
-      </div>
+      </div> */}
       <div className="mt-5">
         <button
           className="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
           type="submit"
         >
-          Sign up
+        <NavLink to='/login'>Sign_Up</NavLink>
         </button>
       </div>
       <div className="flex items-center justify-between mt-4">

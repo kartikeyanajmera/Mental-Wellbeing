@@ -1,9 +1,9 @@
 import React, {useState } from 'react';
 import PropTypes from 'prop-types';
-
+import { NavLink,useNavigate } from 'react-router-dom';
 const Account = ({setUser,user, mode }) => {
   const [isEditing, setIsEditing] = useState(false);
-
+  const history = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
@@ -30,7 +30,7 @@ const Account = ({setUser,user, mode }) => {
   const handleSave = () => setIsEditing(false);
 
   if (!user) {
-    return <div>Loading...</div>;
+   window.location.href = '/login';
   }
 
   return (

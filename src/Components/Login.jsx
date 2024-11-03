@@ -1,5 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
+
 import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NavLink,useNavigate } from 'react-router-dom';
@@ -22,9 +24,12 @@ function Login() {
             });
             } catch (error) {
               console.log(error.message);
-              toast.warn(error.message,{
-                position:'bottom-center',
-              });
+            //   alert("User doesn't exist , Try Sign Up")
+            //   toast.warn(error.message,
+            //     {
+            //     position:'bottom-center',
+            //   });
+            alert("Invalid Credential")
             }
     };
 
@@ -32,13 +37,13 @@ function Login() {
   return (
     <>
     <form onSubmit={handleSubmit}>
-    <div className="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div className="relative py-11 sm:max-w-xl sm:mx-auto">
   <div
-    className="relative px-4 py-10 bg-black mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
+    className="relative px-4 bg-black mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
   >
     <div className="max-w-md mx-auto text-white">
-      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div>
+    <div className="mt-5 grid grid-cols-1 gap-5">
+    <div>
           <label
             className="font-semibold text-sm text-gray-400 pb-1 block"
             htmlFor="email"
@@ -161,7 +166,7 @@ function Login() {
             </svg>
             <SignInGoogle/>
           </button>
-          <button
+          {/* <button
             className="flex items-center justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg mt-4"
           >
             <svg
@@ -177,7 +182,7 @@ function Login() {
               ></path>
             </svg>
             <span className="ml-2">Sign in with Apple</span>
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="mt-5">
@@ -206,5 +211,9 @@ function Login() {
   </>
   )
 }
+Login.propTypes = {
+  toggleDarkMode: PropTypes.func.isRequired,
+  mode: PropTypes.string.isRequired,
+};
 
 export default Login;

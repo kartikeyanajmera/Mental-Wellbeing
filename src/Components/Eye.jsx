@@ -78,7 +78,7 @@ const Eye = () => {
           )}
           <video
             ref={videoRef}
-            className="w-full h-full object-fit"
+            className="w-full h-full object-fit controls"
             autoPlay
             muted
             onPlay={handleVideoPlay}
