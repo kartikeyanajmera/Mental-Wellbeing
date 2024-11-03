@@ -1,3 +1,4 @@
+npm install react-scroll-horizontal@latest react-motion@latest
 import React from 'react';
 import { Link } from 'react-router-dom';
 import breathingExerciseIcon from '../assets/breathingExerciseIcon.svg';
